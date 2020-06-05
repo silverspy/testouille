@@ -4,11 +4,11 @@ services:
     apache:
         image: 'bitnami/apache:latest'
         ports:
-            - "80:80"
+        - '80:8080'
         volumes:
-            - ./front/front-end/home:/app
-        java:
-            build: .
-            ports:
-                - "3300:8080"
-            command: java -jar ./target/Back_DSLMobility-1.0-SNAPSHOT.jar
+        - ./front/front-end/home:/app
+    java:
+        build: .
+        ports:
+            - "8080:8080"
+        command: java -jar ./target/Back_DSLMobility-1.0-SNAPSHOT.jar
